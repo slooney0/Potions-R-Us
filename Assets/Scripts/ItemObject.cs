@@ -15,7 +15,6 @@ public class ItemObject : MonoBehaviour
 
     public void active()
     {
-        Debug.Log("1");
         cGroup.alpha = 1f;
         cGroup.blocksRaycasts = true;
     }

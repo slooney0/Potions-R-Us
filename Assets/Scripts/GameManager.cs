@@ -208,6 +208,7 @@ public class GameManager : MonoBehaviour
             score -= 50;
             scoreText.text = "-50";
             x.SetActive(true);
+            check.SetActive(false);
             StartCoroutine(waitForSecondsBad());
         }
         else if (strikes == 2)
@@ -216,6 +217,7 @@ public class GameManager : MonoBehaviour
             score -= 100;
             scoreText.text = "-100";
             x.SetActive(true);
+            check.SetActive(false);
             StartCoroutine(waitForSecondsBad());
         }
         else if (strikes > 2)
@@ -276,6 +278,7 @@ public class GameManager : MonoBehaviour
             check.SetActive(true);
             scoreText.text = "+" + calculateScore();
             score += calculateScore();
+            x.SetActive(false);
             StopAllCoroutines();
             StartCoroutine(waitForSeconds());
             
@@ -299,6 +302,7 @@ public class GameManager : MonoBehaviour
         score -= scoreToLose;
         scoreText.text = "-" + scoreToLose;
         x.SetActive(true);
+        check.SetActive(false);
         StopAllCoroutines();
         StartCoroutine(waitToLoseScore());
     }
@@ -428,10 +432,10 @@ public class GameManager : MonoBehaviour
         {
             default:
                 break;
-            case Level.Level1:
-                inventory.ActivateItem(wildCarrot);
-                inventory.ActivateItem(brambleBerries);
-                break;
+            //case Level.Level1:
+            //    inventory.ActivateItem(wildCarrot);
+            //    inventory.ActivateItem(brambleBerries);
+            //    break;
             case Level.Level3:
                 inventory.ActivateItem(morelMushroom);
                 break;
