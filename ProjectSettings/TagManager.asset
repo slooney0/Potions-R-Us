@@ -7,6 +7,8 @@ TagManager:
   - UIManager
   - Canvas
   - Item
+  - Cauldren
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,6 @@ public class Item
         HarpyWing,
         Rat,
         MermaidTail,
-        GriffinTenders,
 
     }
 
@@ -49,7 +48,6 @@ public class Item
             case ItemType.HarpyWing:        return ItemAssets.Instance.harpyWingSprite;
             case ItemType.Rat:              return ItemAssets.Instance.ratSprite;
             case ItemType.MermaidTail:      return ItemAssets.Instance.mermaidTailSprite;
-            case ItemType.GriffinTenders:   return ItemAssets.Instance.griffinTendersSprite;
         }
     }
 }

@@ -62,7 +62,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
         if (eventData.pointerDrag != null && !inSlot)
         {
-            eventData.pointerDrag.GetComponent<Rigidbody2D>().gravityScale = 30f;
+            eventData.pointerDrag.GetComponent<Rigidbody2D>().gravityScale = 100f;
         }
         else if (eventData.pointerDrag != null && inSlot)
         {

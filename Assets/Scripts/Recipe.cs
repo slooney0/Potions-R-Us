@@ -70,16 +70,16 @@ public static class Recipe
     public static Item.ItemType[,] Level16to25Recipes = new Item.ItemType[25, 4]
     {
         { Item.ItemType.MermaidTail, Item.ItemType.Corn, Item.ItemType.Corn, Item.ItemType.Berry },
-        { Item.ItemType.BasilishMeat, Item.ItemType.HarpyWing, Item.ItemType.MermaidTail, Item.ItemType.Berry },
-        { Item.ItemType.GriffinTenders, Item.ItemType.ChimeraCheese, Item.ItemType.HarpyWing, Item.ItemType.Berry },
+        { Item.ItemType.BasilishMeat, Item.ItemType.HarpyWing, Item.ItemType.Corn, Item.ItemType.Berry },
+        { Item.ItemType.Corn, Item.ItemType.ChimeraCheese, Item.ItemType.HarpyWing, Item.ItemType.Berry },
         { Item.ItemType.Corn, Item.ItemType.Rat, Item.ItemType.BasilishMeat, Item.ItemType.Berry },
-        { Item.ItemType.HarpyWing, Item.ItemType.Corn, Item.ItemType.GriffinTenders, Item.ItemType.Berry },
-        { Item.ItemType.PricklePear, Item.ItemType.HarpyWing, Item.ItemType.Corn, Item.ItemType.Berry },
+        { Item.ItemType.HarpyWing, Item.ItemType.Corn, Item.ItemType.MermaidTail, Item.ItemType.Berry },
+        { Item.ItemType.LambQuarter, Item.ItemType.HarpyWing, Item.ItemType.Corn, Item.ItemType.Berry },
         { Item.ItemType.LambQuarter, Item.ItemType.WildCarrot, Item.ItemType.HarpyWing, Item.ItemType.Berry },
         { Item.ItemType.PricklePear, Item.ItemType.Rat, Item.ItemType.ChimeraCheese, Item.ItemType.Berry },
         { Item.ItemType.Corn, Item.ItemType.ChimeraCheese, Item.ItemType.ChimeraCheese, Item.ItemType.Berry },
         { Item.ItemType.MermaidTail, Item.ItemType.PricklePear, Item.ItemType.LambQuarter, Item.ItemType.Berry },
-        { Item.ItemType.Rat, Item.ItemType.PricklePear, Item.ItemType.Corn, Item.ItemType.Berry },
+        { Item.ItemType.Rat, Item.ItemType.LambQuarter, Item.ItemType.Corn, Item.ItemType.Berry },
         { Item.ItemType.ChimeraCheese, Item.ItemType.Rat, Item.ItemType.MermaidTail, Item.ItemType.Berry },
         { Item.ItemType.HarpyWing, Item.ItemType.Corn, Item.ItemType.Corn, Item.ItemType.Berry },
         { Item.ItemType.BasilishMeat, Item.ItemType.HarpyWing, Item.ItemType.BasilishMeat, Item.ItemType.Berry },
@@ -88,12 +88,12 @@ public static class Recipe
         { Item.ItemType.HarpyWing, Item.ItemType.Corn, Item.ItemType.MermaidTail, Item.ItemType.Berry },
         { Item.ItemType.PricklePear, Item.ItemType.HarpyWing, Item.ItemType.Rat, Item.ItemType.Berry },
         { Item.ItemType.LambQuarter, Item.ItemType.WildCarrot, Item.ItemType.LambQuarter, Item.ItemType.Berry },
-        { Item.ItemType.Corn, Item.ItemType.ChimeraCheese, Item.ItemType.GriffinTenders, Item.ItemType.Berry },
-        { Item.ItemType.GriffinTenders, Item.ItemType.Rat, Item.ItemType.LambQuarter, Item.ItemType.Berry },
+        { Item.ItemType.Corn, Item.ItemType.ChimeraCheese, Item.ItemType.Corn, Item.ItemType.Berry },
+        { Item.ItemType.MermaidTail, Item.ItemType.Rat, Item.ItemType.LambQuarter, Item.ItemType.Berry },
         { Item.ItemType.PricklePear, Item.ItemType.PricklePear, Item.ItemType.Corn, Item.ItemType.Berry },
         { Item.ItemType.MermaidTail, Item.ItemType.PricklePear, Item.ItemType.MorelMushroom, Item.ItemType.Berry },
         { Item.ItemType.Rat, Item.ItemType.Rat, Item.ItemType.ChimeraCheese, Item.ItemType.Berry },
-        { Item.ItemType.HarpyWing, Item.ItemType.BasilishMeat, Item.ItemType.GriffinTenders, Item.ItemType.Berry }
+        { Item.ItemType.HarpyWing, Item.ItemType.BasilishMeat, Item.ItemType.MermaidTail, Item.ItemType.Berry }
     };
 
     public static Item.ItemType[] currentRecipe = null; 

@@ -11,7 +11,7 @@ public class UI_Inventory : MonoBehaviour
         ItemObject iObj = item.GetComponent<ItemObject>();
         if (iObj != null)
         {
-            iObj.unlock();
+            iObj.active();
         }
 
         CanvasGroup cGroup = item.GetComponent<CanvasGroup>();

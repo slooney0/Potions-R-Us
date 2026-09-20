@@ -6,13 +6,17 @@ public class ItemObject : MonoBehaviour
 {
     public Item.ItemType type;
 
-    public GameObject lockObj;
+    private CanvasGroup cGroup;
 
-    public bool isLocked;
-
-    public void unlock()
+    private void Start()
     {
-        isLocked = false;
-        lockObj.SetActive(false);
+        cGroup = GetComponent<CanvasGroup>();
+    }
+
+    public void active()
+    {
+        Debug.Log("1");
+        cGroup.alpha = 1f;
+        cGroup.blocksRaycasts = true;
     }
 }

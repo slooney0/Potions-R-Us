@@ -7,6 +7,8 @@ public class ScenesManager : MonoBehaviour
 
     public static int scenesChanged = 0;
 
+    public static int score = 0;
+
     private void Awake()
     {
         if (instance == null)

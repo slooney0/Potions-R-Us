@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
     public GameObject RecipeItem1Obj;
     public GameObject RecipeItem2Obj;
 
+    public Slider progressBar;
+
+    public TextMeshProUGUI progressBarText;
+
 
     public bool isCurrentRecipe3Items = false;
 
@@ -84,7 +88,6 @@ public class GameManager : MonoBehaviour
     public GameObject harpyWing;
     public GameObject rat;
     public GameObject mermaidTail;
-    public GameObject griffinTenders;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -117,7 +120,6 @@ public class GameManager : MonoBehaviour
         Level22,
         Level23,
         Level24,
-        Level25,
         LevelEnd,
 
     }
@@ -139,7 +141,29 @@ public class GameManager : MonoBehaviour
         strike3.SetActive(false);
         check.SetActive(false);
         x.SetActive(false);
-}
+    }
+
+    public void resetGameManager()
+    {
+
+        Item3RecipeItem1Obj.SetActive(false);
+        Item3RecipeItem2Obj.SetActive(false);
+        Item3RecipeItem3Obj.SetActive(false);
+        RecipeItem1Obj.SetActive(false);
+        RecipeItem2Obj.SetActive(false);
+
+        currentLevel = Level.Start;
+        nextLevel();
+        score = 0;
+
+        strike1.SetActive(false);
+        strike2.SetActive(false);
+        strike3.SetActive(false);
+        check.SetActive(false);
+        x.SetActive(false);
+    }
+
+
 
     private void Update()
     {
@@ -203,6 +227,7 @@ public class GameManager : MonoBehaviour
 
             score -= 150;
             strike3.SetActive(true);
+            ScenesManager.score = score;
 
             RecipeItem1Obj.SetActive(false);
             RecipeItem2Obj.SetActive(false);
@@ -243,6 +268,7 @@ public class GameManager : MonoBehaviour
         {
             //EndGameGood
             //Scene.EndScreenGood
+            ScenesManager.score = score;
             ScenesManager.instance.LoadScene(ScenesManager.Scene.EndScreenWin);
         }
         else
@@ -258,8 +284,32 @@ public class GameManager : MonoBehaviour
 
     private int calculateScore()
     {
-        return (int)timer;
+        if (currentLevel != Level.Level1)
+        {
+            return (int)timer;
+        }
+        else
+        {
+            return 20;
+        }
     }
+
+    public void loseScore(int scoreToLose)
+    {
+        score -= scoreToLose;
+        scoreText.text = "-" + scoreToLose;
+        x.SetActive(true);
+        StopAllCoroutines();
+        StartCoroutine(waitToLoseScore());
+    }
+
+    private IEnumerator waitToLoseScore()
+    {
+        yield return new WaitForSeconds(2);
+        scoreText.text = "";
+        x.SetActive(false);
+    }
+
 
     private IEnumerator waitForSeconds()
     {
@@ -277,14 +327,20 @@ public class GameManager : MonoBehaviour
     private void nextLevel()
     {
         currentLevel++;
+
+        progressBar.maxValue = 25;
+        progressBar.value = (int)currentLevel;
+        progressBarText.text = (int)currentLevel + "/25";
+
         check.SetActive(false);
         scoreText.text = "";
         levelComplete = false;
+
         chooseNewLevel();
         unlockNewItems();
         updateCurrentRecipeIm();
+
         timer = timeForLevel();
-        Debug.Log("timer: " + timer);
     }
 
     private void updateCurrentRecipeIm()
@@ -316,7 +372,53 @@ public class GameManager : MonoBehaviour
             default:
                 return (25);
             case Level.Level1 :
-                return (5 * MINUTE);
+                return (1 * MINUTE);
+            case Level.Level2:
+                return (30);
+            case Level.Level3:
+                return (30);
+            case Level.Level4:
+                return (30);
+            case Level.Level5:
+                return (30);
+            case Level.Level6:
+                return (25);
+            case Level.Level7:
+                return (25);
+            case Level.Level8:
+                return (25);
+            case Level.Level9:
+                return (25);
+            case Level.Level10:
+                return (25);
+            case Level.Level11:
+                return (20);
+            case Level.Level12:
+                return (20);
+            case Level.Level13:
+                return (20);
+            case Level.Level14:
+                return (20);
+            case Level.Level15:
+                return (20);
+            case Level.Level16:
+                return (15);
+            case Level.Level17:
+                return (15);
+            case Level.Level18:
+                return (15);
+            case Level.Level19:
+                return (15);
+            case Level.Level20:
+                return (10);
+            case Level.Level22:
+                return (10);
+            case Level.Level23:
+                return (10);
+            case Level.Level24:
+                return (10);
+            case Level.LevelEnd:
+                return (10);
         }
     }
 
@@ -346,7 +448,6 @@ public class GameManager : MonoBehaviour
                 inventory.ActivateItem(harpyWing);
                 inventory.ActivateItem(rat);
                 inventory.ActivateItem(mermaidTail);
-                inventory.ActivateItem(griffinTenders);
                 break;
         }
     }
@@ -360,7 +461,6 @@ public class GameManager : MonoBehaviour
         if (rand <= percentages[0])
         {
             int randEasy = UnityEngine.Random.Range(0, Recipe.numberOfTutorialRecipes);
-            Debug.Log("randEasy: " + randEasy);
             Recipe.currentRecipe = new Item.ItemType[4] { Recipe.TutorialLevelsRecipes[randEasy, 0], Recipe.TutorialLevelsRecipes[randEasy, 1], Recipe.TutorialLevelsRecipes[randEasy, 2], Recipe.TutorialLevelsRecipes[randEasy, 3] };
         }
         else if (rand <= percentages[0] + percentages[1])
@@ -422,7 +522,6 @@ public class GameManager : MonoBehaviour
             case (Level.Level22): return new float[5] { 0, 0, 0, 0, 1 };
             case (Level.Level23): return new float[5] { 0, 0, 0, 0, 1 };
             case (Level.Level24): return new float[5] { 0, 0, 0, 0, 1 };
-            case (Level.Level25): return new float[5] { 0, 0, 0, 0, 1 };
             case (Level.LevelEnd): return new float[5] { 0, 0, 0, 0, 1 };
         }
     }
